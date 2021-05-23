@@ -9,7 +9,7 @@ fi
 
 echo "Installing dependencies ..."
 sudo apt-get update
-sudo apt-get install -y unzip curl jq dnsutils
+sudo apt-get install -y unzip curl dnsutils
 
 echo "Fetching Consul version ${CONSUL_VERSION} ..."
 curl -s https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip -o consul.zip
@@ -56,11 +56,3 @@ sudo cp /vagrant/consul.service /etc/systemd/system/consul.service
 sudo consul validate /etc/consul.d/consul.hcl
 sudo systemctl enable consul
 sudo systemctl start consul
-
-if [ $(hostname) != "consul-server-1" ]; then
-  for i in `seq 1 5`; do
-      echo "Joinning cluster ... #$i"
-      sleep 1
-  done
-  consul join 192.168.1.11
-fi

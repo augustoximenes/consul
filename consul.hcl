@@ -8,3 +8,12 @@ verify_incoming = true
 verify_outgoing = true
 verify_server_hostname = true
 bind_addr = "{{GetInterfaceIP \"enp0s8\"}}"
+retry_join = ["192.168.1.11"]
+acl = {
+  enabled = true
+  default_policy = "allow"
+  enable_token_persistence = true
+}
+performance {
+  raft_multiplier = 1
+}
