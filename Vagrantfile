@@ -10,7 +10,7 @@ servers = {
 }
 
 clients = {
-  "frontend-1" => { :ip => "192.168.1.21", :cpus => 1, :mem => 256 }
+  "frontend" => { :ip => "192.168.1.21", :cpus => 1, :mem => 256 }
 }
 
 Vagrant.configure("2") do |config|

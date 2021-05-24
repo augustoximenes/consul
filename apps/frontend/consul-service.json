@@ -1,0 +1,8 @@
+{
+    "services": [
+        {
+            "name": "nginx",
+            "port": 8080
+        }
+    ]
+}
