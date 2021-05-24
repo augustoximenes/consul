@@ -10,7 +10,7 @@ servers = {
 }
 
 clients = {
-  "client-server-1" => { :ip => "192.168.1.21", :cpus => 1, :mem => 256 }
+  "frontend-1" => { :ip => "192.168.1.21", :cpus => 1, :mem => 256 }
 }
 
 Vagrant.configure("2") do |config|
@@ -42,7 +42,8 @@ Vagrant.configure("2") do |config|
         override.vm.network :private_network, ip: "#{info[:ip]}"
         override.vm.hostname = hostname
         override.vm.provision "install_consul", type: "shell", path: "1_install_consul.sh", env: { "CONSUL_VERSION" => CONSUL_VERSION }
-        override.vm.provision "config_client", type: "shell", path: "2_config_client.sh"
+        override.vm.provision "install_app", type: "shell", path: "apps/#{hostname}/1_install_app.sh"
+        override.vm.provision "config_client", type: "shell", path: "apps/#{hostname}/2_config_client.sh"
         override.vm.provision "config_tls_cert", type: "shell", path: "3_config_tls_cert.sh"
         override.vm.provision "config_systemd", type: "shell", path: "4_config_systemd.sh"
       end

@@ -1,8 +1,8 @@
 {
     "service": {
-        "name": "web",
+        "name": "frontend",
         "tags": [
-        "rails"
+        "web"
         ],
         "port": 80
     }
