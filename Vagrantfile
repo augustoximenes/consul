@@ -46,6 +46,7 @@ Vagrant.configure("2") do |config|
         override.vm.provision "config_client", type: "shell", path: "apps/#{hostname}/2_config_client.sh"
         override.vm.provision "config_tls_cert", type: "shell", path: "3_config_tls_cert.sh"
         override.vm.provision "config_systemd", type: "shell", path: "4_config_systemd.sh"
+        override.vm.provision "config_app", type: "shell", path: "apps/#{hostname}/5_config_app.sh"
       end
     end
   end

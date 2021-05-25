@@ -1,6 +1,20 @@
 {
     "services": [
         {
+            "name": "web",
+            "port": 8080,
+            "connect": {
+                "sidecar_service": {
+                    "proxy": {
+                        "upstreams": [{
+                            "destination_name": "nginx",
+                            "local_bind_port": 8081
+                        }]
+                    }
+                }
+            }
+        },
+        {
             "name": "nginx",
             "port": 8080
         }
