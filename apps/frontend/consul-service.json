@@ -8,6 +8,7 @@
                     "proxy": {
                         "upstreams": [{
                             "destination_name": "nginx",
+                            "local_bind_address": "0.0.0.0",
                             "local_bind_port": 8081
                         }]
                     }
@@ -16,7 +17,8 @@
         },
         {
             "name": "nginx",
-            "port": 8080
+            "port": 8080,
+            "connect": { "sidecar_service": {} }
         }
     ]
 }
