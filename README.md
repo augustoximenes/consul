@@ -1,2 +1,2 @@
 # consul
-Consul - Service Mesh
+Consul Service Mesh
